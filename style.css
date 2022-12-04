@@ -11,8 +11,7 @@ html {
 }
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	line-height: 1.4;
 	background-color: #f8fafc;
 }
@@ -109,4 +108,69 @@ body {
 	padding: 0.6em 1.2em;
 	border-radius: 0.3em;
 	cursor: pointer;
+}
+
+.list {
+	background-color: #ffffff;
+	padding: 1.8em 1.2em;
+	box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
+	border-radius: 0.6em;
+}
+
+.sublist-content {
+	width: 100%;
+	border-left: 0.3em solid #587ef4;
+	margin-bottom: 0.6em;
+	padding-bottom: 0.6em;
+}
+
+.product {
+	font-weight: 500;
+	color: #363d55;
+}
+
+.amount {
+	color: #414a67;
+	margin-left: 20%;
+}
+
+.icons-container {
+	width: 5em;
+	margin: 1.2em;
+	align-items: center;
+}
+
+.product-title {
+	margin-bottom: 1em;
+}
+
+.hide {
+	display: none;
+}
+
+.error {
+	color: #ff465a;
+}
+
+.edit {
+	margin-left: auto;
+}
+
+.edit,
+.delete {
+	background: transparent;
+	cursor: pointer;
+	margin-right: 1.5em;
+	border: none;
+	color: #587ef4;
+}
+
+@media screen and (max-width: 600px) {
+	.wrapper {
+		font-size: 14px;
+	}
+	.sub-container {
+		grid-template-columns: 1fr;
+		gap: 1em;
+	}
 }
