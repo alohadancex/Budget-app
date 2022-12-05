@@ -9,24 +9,35 @@ const productTitleError = document.getElementById('product-title-error')
 const productCostError = document.getElementById('product-cost-error')
 const amount = document.getElementById('amount')
 const expenditureValue = document.getElementById('expenditure-value')
+console.log(expenditureValue)
 const balanceValue = document.getElementById('balance-amount')
 const list = document.getElementById('list')
 let tempAmount = 0
 
-// set Budget Part
+//Set Budget Part
 totalAmountButton.addEventListener('click', () => {
 	tempAmount = totalAmount.value
-	// if empty or negative value
-	if (tempAmount === '' || tempAmount < 0) {
+	// check on empty or negavite value
+	if (tempAmount === '' || tempAmount === 0) {
 		errorMessage.classList.remove('hide')
 	} else {
 		errorMessage.classList.add('hide')
-		// set Budget
-		amount.innerHTML = tempAmount
-		// set Balance
-		balanceValue.innerText = tempAmount - expenditureValue.innerText
-		// clear input
+
+		// set value on total budget
+		amount.innerText = tempAmount
+		//clear input
 		totalAmount.value = ''
+		//set value on balance
+		balanceValue.innerText = tempAmount - expenditureValue.innerText
 	}
 })
-// set Budget Part
+//Set Budget Part
+
+// function to disable edit and delete button
+const disableButtons = bool => {
+	let editButtons = document.getElementsByClassName('edit')
+	Array.from(editButtons).forEach(elem => {
+		elem.disabled = bool
+	})
+}
+//function to disable edit and delete button
