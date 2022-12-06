@@ -33,11 +33,3 @@ totalAmountButton.addEventListener('click', () => {
 })
 //Set Budget Part
 
-// function to disable edit and delete button
-const disableButtons = bool => {
-	let editButtons = document.getElementsByClassName('edit')
-	Array.from(editButtons).forEach(elem => {
-		elem.disabled = bool
-	})
-}
-//function to disable edit and delete button
