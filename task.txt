@@ -1,0 +1,6 @@
+Create initial references - DONE
+Implement function to set budget
+Function to disable Edit/Delete buttons
+Create a function to modify list items
+Create a function to create a list
+Implement function to calculate expenses and balance.

@@ -9,7 +9,6 @@ const productTitleError = document.getElementById('product-title-error')
 const productCostError = document.getElementById('product-cost-error')
 const amount = document.getElementById('amount')
 const expenditureValue = document.getElementById('expenditure-value')
-console.log(expenditureValue)
 const balanceValue = document.getElementById('balance-amount')
 const list = document.getElementById('list')
 let tempAmount = 0
@@ -17,19 +16,41 @@ let tempAmount = 0
 //Set Budget Part
 totalAmountButton.addEventListener('click', () => {
 	tempAmount = totalAmount.value
-	// check on empty or negavite value
+	// check empty or negavite value in input
 	if (tempAmount === '' || tempAmount === 0) {
 		errorMessage.classList.remove('hide')
 	} else {
 		errorMessage.classList.add('hide')
 
-		// set value on total budget
+		// set value in total budget
 		amount.innerText = tempAmount
-		//clear input
-		totalAmount.value = ''
-		//set value on balance
+
+		// set value in balance
 		balanceValue.innerText = tempAmount - expenditureValue.innerText
+
+		// clear input
+		totalAmount.value = ''
 	}
 })
 //Set Budget Part
 
+// function to disable edit and delete button
+const disableButton = bool => {
+	let editButtons = document.getElementsByClassName('edit')
+	Array.from(editButtons).forEach(elem => {
+		elem.disabled = bool
+	})
+}
+// function to disable edit and delete button
+
+// function to create list
+const listCreator = (expenseName, esxpenseValue) => {
+	let sublistContent = document.createElement('div')
+	sublistContent.classList.add('sublist-content', flex - space)
+	list.appendChild(sublistContent)
+	sublistContent.innerHTML = `<p class="product">${expenseName}</p> 
+	<p class="amount">${esxpenseValue}</p>
+	`
+	
+}
+//function to create list
