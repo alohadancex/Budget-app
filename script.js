@@ -57,16 +57,35 @@ const listCreator = (expenseName, esxpenseValue) => {
 	editButton.classList.add('fa-thin', 'fa-money-check-pen', 'edit')
 	editButton.style.fontSize = '24px'
 	editButton.addEventListener('click', () => {
-		modifyElement(editButton, true)
+		modifyElemet(editButton, true)
 	})
 	let deleteButton = document.createElement('button')
 	deleteButton.classList.add('fa-thin', 'fa-eraser', 'delete')
 	deleteButton.style.fontSize = '24px'
 	deleteButton.addEventListener('click', () => {
-		modifyElement(deleteButton)
+		modifyElemet(deleteButton)
 	})
 	sublistContent.appendChild(editButton)
 	sublistContent.appendChild(deleteButton)
 	document.getElementById('list').appendChild(sublistContent)
 }
+list.innerText = 'fdsfsd'
 //function to create list
+
+// function to modify list
+const modifyElemet = (elemend, edit = false) => {
+	let parentDiv = element.parentElement
+	let currentBalace = balanceValue.innerText
+	let currentExpense = esxpenseValue.innerText
+	let parentElement = parentDiv.querySelector('.amount').innerText
+	if (edit) {
+		let parentText = parentDiv.querySelector('.product').innerText
+		productTitle.value = parentText
+		userAmount.value = parentAmount
+		disableButton(true)
+	}
+	balanceValue.innerText = parseInt(currentBalace) + parseInt(parentAmount)
+	expenditureValue.innerText = parseInt(currentExpense) - parseInt(parentAmount)
+	parentDiv.remove()
+}
+// function to modify list
