@@ -13,7 +13,7 @@ const balanceValue = document.getElementById('balance-amount')
 const list = document.getElementById('list')
 let tempAmount = 0
 
-//Set Budget Part
+// Set Budget Part
 totalAmountButton.addEventListener('click', () => {
 	tempAmount = totalAmount.value
 	// check empty or negavite value in input
@@ -32,7 +32,7 @@ totalAmountButton.addEventListener('click', () => {
 		totalAmount.value = ''
 	}
 })
-//Set Budget Part
+// Set Budget Part
 
 // function to disable edit and delete button
 const disableButton = bool => {
@@ -54,14 +54,14 @@ const listCreator = (expenseName, esxpenseValue) => {
 	<p class="amount">${esxpenseValue}</p>
 	`
 	let editButton = document.createElement('button')
-	editButton.classList.add('fa-thin', 'fa-money-check-pen', 'edit')
-	editButton.style.fontSize = '24px'
+	editButton.classList.add('fa-solid', 'fa-pen-to-square', 'edit')
+	editButton.style.fontSize = '1.2em'
 	editButton.addEventListener('click', () => {
 		modifyElemet(editButton, true)
 	})
 	let deleteButton = document.createElement('button')
-	deleteButton.classList.add('fa-thin', 'fa-eraser', 'delete')
-	deleteButton.style.fontSize = '24px'
+	deleteButton.classList.add('fa-solid', 'fa-trash-can', 'delete')
+	deleteButton.style.fontSize = '1.2em'
 	deleteButton.addEventListener('click', () => {
 		modifyElemet(deleteButton)
 	})
@@ -69,15 +69,14 @@ const listCreator = (expenseName, esxpenseValue) => {
 	sublistContent.appendChild(deleteButton)
 	document.getElementById('list').appendChild(sublistContent)
 }
-list.innerText = 'fdsfsd'
-//function to create list
+// function to create list
 
 // function to modify list
-const modifyElemet = (elemend, edit = false) => {
+const modifyElemet = (element, edit = false) => {
 	let parentDiv = element.parentElement
 	let currentBalace = balanceValue.innerText
-	let currentExpense = esxpenseValue.innerText
-	let parentElement = parentDiv.querySelector('.amount').innerText
+	let currentExpense = expenditureValue.innerText
+	let parentAmount = parentDiv.querySelector('.amount').innerText
 	if (edit) {
 		let parentText = parentDiv.querySelector('.product').innerText
 		productTitle.value = parentText
@@ -89,3 +88,29 @@ const modifyElemet = (elemend, edit = false) => {
 	parentDiv.remove()
 }
 // function to modify list
+
+// function to Add expenses
+checkAmountButton.addEventListener('click', () => {
+	// empty check
+	if (!userAmount.value || !productTitle.value) {
+		productTitleError.classList.remove('hide')
+		return false
+	}
+	// enable button
+	disableButton(false)
+	// Expense
+	let expenditure = parseInt(userAmount.value)
+	// Total expense ( existin + new)
+
+	let sum = parseInt(expenditureValue.innerText) + expenditure
+	expenditureValue.innerText = sum
+	// total balance(budget - total exspense)
+	const totalBalance = tempAmount - sum
+	balanceValue.innerText = totalBalance
+	//create list
+	listCreator(productTitle.value, userAmount.value)
+	// empty inputs
+	productTitle.value = ''
+	userAmount.value = ''
+})
+// function to Add expenses
