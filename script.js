@@ -51,6 +51,5 @@ const listCreator = (expenseName, esxpenseValue) => {
 	sublistContent.innerHTML = `<p class="product">${expenseName}</p> 
 	<p class="amount">${esxpenseValue}</p>
 	`
-	
 }
 //function to create list
