@@ -45,11 +45,28 @@ const disableButton = bool => {
 
 // function to create list
 const listCreator = (expenseName, esxpenseValue) => {
+	console.log(expenseName)
+	console.log(esxpenseValue)
 	let sublistContent = document.createElement('div')
-	sublistContent.classList.add('sublist-content', flex - space)
+	sublistContent.classList.add('sublist-content', 'flex-space')
 	list.appendChild(sublistContent)
 	sublistContent.innerHTML = `<p class="product">${expenseName}</p> 
 	<p class="amount">${esxpenseValue}</p>
 	`
+	let editButton = document.createElement('button')
+	editButton.classList.add('fa-thin', 'fa-money-check-pen', 'edit')
+	editButton.style.fontSize = '24px'
+	editButton.addEventListener('click', () => {
+		modifyElement(editButton, true)
+	})
+	let deleteButton = document.createElement('button')
+	deleteButton.classList.add('fa-thin', 'fa-eraser', 'delete')
+	deleteButton.style.fontSize = '24px'
+	deleteButton.addEventListener('click', () => {
+		modifyElement(deleteButton)
+	})
+	sublistContent.appendChild(editButton)
+	sublistContent.appendChild(deleteButton)
+	document.getElementById('list').appendChild(sublistContent)
 }
 //function to create list
